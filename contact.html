@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 id="heading">Contact</h1>
+        <p id="date">Date</p>
+      </header>
+      <main>
+        <form action="/" method="post" id="myForm">
+          <!-- when email label is clicked, it will take to email input -->
+          <label for="email">E-mail address</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="youremail@email.com"
+          />
+          <br />
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            placeholder="password"
+            minlength="7"
+          />
+          <br />
+          <label for="age">Age</label>
+          <input
+            max="1000"
+            min="18"
+            type="number"
+            name="age"
+            id="age"
+            placeholder="18++"
+          />
+          <br />
+          <label for="date">Date</label>
+          <input type="date" name="date" id="date" />
+          <br />
+          <label for="desription">Description</label>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="5"
+          ></textarea>
+          <br />
+          <label for="file">File</label>
+          <input type="file" name="" id="" multiple />
+          <br />
+          <label for="cars">Cars</label>
+          <select name="cars" id="cars">
+            <option value="selectone">Select one</option>
+            <option value="audi">Audi</option>
+            <option value="gmc">GMC</option>
+            <option value="tesla" selected>Tesla</option>
+            <option value="ford">Ford</option>
+          </select>
+          <br />
+          <label for="select">Select one</label>
+          <input type="radio" name="select" id="" value="myRadio" />
+          <input type="radio" name="select" id="anotherRadio" value="myRadio" />
+          <input type="radio" name="select" id="thirdRadio" value="myRadio" />
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </main>
+      <button onclick="changeHeading()">Change heading</button>
+      <button onclick="displayDate()">Display date</button>
+      <button onclick="getLocation()">Get location</button>
+    </div>
+    <script>
+      function changeHeading() {
+        const heading = document.getElementById("heading");
+        console.log(heading);
+        heading.innerText = "I'm New";
+        heading.style.color = "red";
+        heading.style.textAlign = "left";
+      }
+      function displayDate() {
+        document.getElementById("date").innerHTML = Date();
+      }
+
+      function getLocation() {
+        navigator.geolocation.getCurrentPosition((position) => {
+          alert(`${position.coords.latitude}, ${position.coords.longitude} `);
+        });
+      }
+    </script>
+  </body>
+</html>
